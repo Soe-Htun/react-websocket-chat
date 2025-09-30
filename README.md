@@ -1,6 +1,8 @@
 # React WebSocket Chat - Messenger Style
 
-A real-time chat application built with React and WebSocket, styled like Facebook Messenger with full mobile responsiveness.
+A real-time chat application built with React and WebSocket, styled like Facebook Messenger with full mobile responsiveness and Tailwind CSS.
+
+![Preview](public/preview.png)
 
 ## Features
 
@@ -8,30 +10,32 @@ A real-time chat application built with React and WebSocket, styled like Faceboo
 - ✅ Messenger-like UI design with message bubbles
 - ✅ Mobile responsive (works perfectly on all screen sizes)
 - ✅ User identification and message grouping
-- ✅ Smart timestamps (appear after message groups or time gaps)
+- ✅ Click-to-show timestamps on individual messages
 - ✅ Connection status indicator
 - ✅ Auto-reconnection on disconnect
 - ✅ Touch-friendly interface
+- ✅ Tailwind CSS styling with custom messenger theme
 
 ## Project Structure
 
 ```
 react-websocket-chat/
+├── public/
+│   └── preview.png         # Preview screenshot
 ├── src/
-│   ├── components/          # React components
+│   ├── components/         # React components (Tailwind styled)
 │   │   ├── ChatMessage.jsx
-│   │   ├── ChatMessage.css
 │   │   ├── ChatInput.jsx
-│   │   ├── ChatInput.css
-│   │   ├── ConnectionStatus.jsx
-│   │   └── ConnectionStatus.css
+│   │   └── ConnectionStatus.jsx
 │   ├── hooks/              # Custom React hooks
 │   │   └── useWebSocket.js
 │   ├── services/           # WebSocket service
 │   │   └── websocket.js
 │   ├── App.jsx
-│   ├── App.css
+│   ├── index.css           # Tailwind CSS imports
 │   └── main.jsx
+├── tailwind.config.cjs     # Tailwind configuration
+├── postcss.config.cjs      # PostCSS configuration
 ├── server.js               # WebSocket server
 ├── package.json
 └── README.md
@@ -136,16 +140,17 @@ this.maxReconnectAttempts = 5; // Maximum number of attempts
 ```
 
 ### Styling
-All component styles are in separate CSS files:
-- `src/App.css` - Main app and layout styles
-- `src/components/ChatMessage.css` - Message bubble styles
-- `src/components/ChatInput.css` - Input field styles
-- `src/components/ConnectionStatus.css` - Connection indicator styles
+The application uses **Tailwind CSS** for styling:
+- `tailwind.config.cjs` - Tailwind configuration with custom messenger colors
+- `src/index.css` - Tailwind imports and base styles
+- All components use Tailwind utility classes for styling
+- Custom messenger theme colors: `messenger-blue`, `messenger-gray`, etc.
 
 ## Technologies Used
 
 - **React 18** - UI library
 - **Vite** - Build tool and dev server
+- **Tailwind CSS v3** - Utility-first CSS framework
 - **WebSocket API** - Real-time communication
 - **ws** - WebSocket library for Node.js server
 
